@@ -17,13 +17,21 @@ public class YyTheLast2Digits {
         int mltpNum = a*b*c*d;
 
         System.out.println("Multiplication Number = " + mltpNum);
-        // double num = mltpNum/100.0;
-        // System.out.println(num);
+
         if (mltpNum > 10){
-           // String [] numder = (String.valueOf(mltpNum)).split("\\.");
-
-            System.out.println(String.format("%02d", mltpNum));
-
+            double div = mltpNum/100.0;
+            String  str = String.valueOf(div);
+            if (str.contains(".")){
+                String [] part = str.split("\\.");
+                int as = Integer.parseInt(part[1]);
+                if (as < 10){
+                    System.out.println(as*10);
+                }else {
+                    System.out.println(as);
+                }
+            }else {
+                System.out.println(00);
+            }
         }else {
             System.out.println(" Multiplication Number one digit." + mltpNum);
         }
