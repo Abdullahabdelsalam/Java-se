@@ -10,7 +10,7 @@
 	birth_date date,
 	address  varchar(255),
 	PRIMARY KEY (ID)
- )
+ );
 
 ----------------------------------
 --Q(2) alter table manger drop address column
