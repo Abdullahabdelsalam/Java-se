@@ -1,0 +1,21 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food</title>
+</head>
+<body>
+    <h2>Order Your Food</h2>
+
+    <!-- Form to input the food order -->
+    <form action="orderFood.jsp" method="post">
+        <label for="food">Enter food to order: </label>
+        <input type="text" id="food" name="food" required>
+        <button type="submit">Add Order</button>
+    </form>
+
+    <hr>
+</body>
+</html>
