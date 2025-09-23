@@ -1,21 +1,36 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="true" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Food</title>
+    <title>Food Order</title>
 </head>
 <body>
     <h2>Order Your Food</h2>
-
-    <!-- Form to input the food order -->
-    <form action="orderFood.jsp" method="post">
-        <label for="food">Enter food to order: </label>
+    <form action="orderFood.jsp" method="POST">
+        <label for="food">Enter Food Order:</label>
         <input type="text" id="food" name="food" required>
-        <button type="submit">Add Order</button>
+        <input type="submit" value="Order">
     </form>
 
-    <hr>
+    <%
+        String food = request.getParameter("food");
+        if (food != null && !food.isEmpty()) {
+
+            List<String> orders = (List<String>) session.getAttribute("orders");
+            if (orders == null) {
+                orders = new ArrayList<>();
+            }
+
+            orders.add(food);
+            session.setAttribute("orders", orders);
+        }
+    %>
+
+    <br>
+    <a href="allorders.jsp">View All Orders</a>
 </body>
 </html>
